@@ -24,7 +24,7 @@ class UserClient extends AbstractClient
      * @access public
      * @return array
      */
-    public function user($uuid)
+    public function findOne($uuid)
     {
         return $this->apiGet(self::USER_URL . '/' . $uuid)->json();
     }

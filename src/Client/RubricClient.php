@@ -18,25 +18,25 @@ class RubricClient extends AbstractClient
     }
 
     /**
-     * rubric
+     * find one rubric by uuid
      *
      * @param string $uuid
      * @access public
      * @return array
      */
-    public function rubric($uuid)
+    public function findOne($uuid)
     {
         return  $this->apiGet('/' . $uuid)->json();
     }
 
     /**
-     * rubrics
+     * find rubrics by parameters
      *
      * @param array $parameters
      * @access public
      * @return array
      */
-    public function rubrics(array $parameters = [])
+    public function findBy(array $parameters = [])
     {
         return $this->apiGet('', $parameters)->json();
     }

@@ -7,25 +7,25 @@ class ActivityClient extends AbstractClient
     const ACTIVITY_URL = '/activities';
 
     /**
-     * activities
+     * find activities by parameters
      *
      * @param array $parameters
      * @access public
      * @return array
      */
-    public function activities(array $parameters = [])
+    public function findBy(array $parameters = [])
     {
         return $this->apiGet('', $parameters)->json();
     }
 
     /**
-     * activity
+     * find one activity by uuid
      *
      * @param string $uuid
      * @access public
      * @return array
      */
-    public function activity($uuid)
+    public function findOne($uuid)
     {
         return $this->apiGet('/' . $uuid)->json();
     }
