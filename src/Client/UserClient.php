@@ -1,6 +1,6 @@
 <?php
 
-namespace Client;
+namespace Mapado\Sdk\Client;
 
 class UserClient extends AbstractClient
 {
@@ -20,7 +20,7 @@ class UserClient extends AbstractClient
     /**
      * user
      *
-     * @param mixed $uuid
+     * @param string $uuid
      * @access public
      * @return array
      */

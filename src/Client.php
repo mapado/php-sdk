@@ -32,6 +32,14 @@ class Client
     public $user;
 
     /**
+     * activity
+     *
+     * @var Client\ActivityClient
+     * @access public
+     */
+    public $activity;
+
+    /**
      * __construct
      *
      * @param AccessToken $accessToken
@@ -43,5 +51,6 @@ class Client
 
         $this->rubric = new Client\RubricClient($accessToken);
         $this->user = new Client\UserClient($accessToken);
+        $this->activity = new Client\ActivityClient($accessToken);
     }
 }
