@@ -3,6 +3,7 @@
 namespace Mapado\Sdk\Client;
 
 use Mapado\Sdk\Model\AccessToken;
+use Mapado\Sdk\Transformer\TransformerInterface;
 
 abstract class AbstractClient extends \GuzzleHttp\Client
 {
@@ -10,14 +11,32 @@ abstract class AbstractClient extends \GuzzleHttp\Client
     const HOST = 'https://api.mapado.com';
 
     /**
+     * accessToken
+     *
+     * @var string
+     * @access private
+     */
+    private $accessToken;
+
+    /**
+     * transformer
+     *
+     * @var TransformerInterface
+     * @access protected
+     */
+    protected $transformer;
+
+    /**
      * __construct
      *
      * @param AccessToken $accessToken
+     * @param TransformerInterface $transformer
      * @access public
      */
-    public function __construct(AccessToken $accessToken)
+    public function __construct(AccessToken $accessToken, TransformerInterface $transformer = null)
     {
         $this->accessToken = $accessToken;
+        $this->transformer = $transformer;
 
         parent::__construct(['base_url' => self::HOST]);
     }

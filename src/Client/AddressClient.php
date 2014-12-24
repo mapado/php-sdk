@@ -2,12 +2,12 @@
 
 namespace Mapado\Sdk\Client;
 
-class ActivityClient extends AbstractClient
+class AddressClient extends AbstractClient
 {
-    const ACTIVITY_URL = '/activities';
+    const ADDRESS_URL = '/addresses';
 
     /**
-     * find activities by parameters
+     * find addresses by parameters
      *
      * @param array $parameters
      * @access public
@@ -19,7 +19,7 @@ class ActivityClient extends AbstractClient
     }
 
     /**
-     * find one activity by uuid
+     * find one address by uuid
      *
      * @param string $uuid
      * @access public
@@ -31,22 +31,10 @@ class ActivityClient extends AbstractClient
     }
 
     /**
-     * program
-     *
-     * @param string $uuid
-     * @access public
-     * @return array
-     */
-    public function program($uuid)
-    {
-        return $this->apiGet('/' . $uuid . '/program')->json();
-    }
-
-    /**
      * @{inheritedDoc}
      */
     protected function getRootUrl()
     {
-        return self::ACTIVITY_URL;
+        return self::ADDRESS_URL;
     }
 }

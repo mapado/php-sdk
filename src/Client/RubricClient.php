@@ -26,7 +26,9 @@ class RubricClient extends AbstractClient
      */
     public function findOne($uuid)
     {
-        return  $this->apiGet('/' . $uuid)->json();
+        $rubricArray = $this->apiGet('/' . $uuid)->json();
+
+        return $this->transformer->transformItem($rubricArray);
     }
 
     /**
@@ -38,7 +40,7 @@ class RubricClient extends AbstractClient
      */
     public function findBy(array $parameters = [])
     {
-        return $this->apiGet('', $parameters)->json();
+        return $this->transformer->transformList($this->apiGet('', $parameters)->json());
     }
 
     /**
