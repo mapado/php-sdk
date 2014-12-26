@@ -28,7 +28,7 @@ $client = new \Mapado\Sdk\Client($token);
 
 ### Rubrics
 ```php
-$rubrics = $client->rubric->FindBy(['q' => 'concert']);
+$rubrics = $client->rubric->findBy(['q' => 'concert']);
 $rubric = $client->rubric->findOne('63e4b024-6f08-43d3-a73b-634a306bc6c6');
 ```
 
