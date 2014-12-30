@@ -45,4 +45,4 @@ Will return an array or an instance of [Activity](https://github.com/mapado/php-
 $me = $client->user->me();
 $user = $client->user->findOne('63e4b024-6f08-43d3-a73b-634a306bc6c6');
 ```
-Will return an array or an instance of [User](https://github.com/mapado/php-sdk/blob/master/src/Model/User.php)
+Will return an instance of [User](https://github.com/mapado/php-sdk/blob/master/src/Model/User.php)
