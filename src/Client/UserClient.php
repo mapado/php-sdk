@@ -14,7 +14,7 @@ class UserClient extends AbstractClient
      */
     public function me()
     {
-        return $this->apiGet('/me')->json();
+        return $this->transformer->transformItem($this->apiGet('/me')->json());
     }
 
     /**
@@ -26,7 +26,7 @@ class UserClient extends AbstractClient
      */
     public function findOne($uuid)
     {
-        return $this->apiGet(self::USER_URL . '/' . $uuid)->json();
+        return $this->transformer->transformItem($this->apiGet(self::USER_URL . '/' . $uuid)->json());
     }
 
     /**

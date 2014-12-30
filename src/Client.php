@@ -4,6 +4,7 @@ namespace Mapado\Sdk;
 
 use Mapado\Sdk\Client;
 use Mapado\Sdk\Model\AccessToken;
+use Mapado\Sdk\Transformer;
 
 class Client
 {
@@ -49,8 +50,16 @@ class Client
     {
         $this->accessToken = $accessToken;
 
-        $this->rubric = new Client\RubricClient($accessToken);
-        $this->user = new Client\UserClient($accessToken);
-        $this->activity = new Client\ActivityClient($accessToken);
+        // create transformers
+        $addressTransformer = new Transformer\AddressTransformer();
+        $activityTransformer = new Transformer\ActivityTransformer($addressTransformer);
+        $rubricTransformer = new Transformer\RubricTransformer();
+        $userTransformer = new Transformer\UserTransformer();
+
+        // create client
+        $this->rubric = new Client\RubricClient($accessToken, $rubricTransformer);
+        $this->user = new Client\UserClient($accessToken, $userTransformer);
+        $this->activity = new Client\ActivityClient($accessToken, $activityTransformer);
+        $this->address = new Client\AddressClient($accessToken, $addressTransformer);
     }
 }

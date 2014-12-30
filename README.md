@@ -28,12 +28,18 @@ $client = new \Mapado\Sdk\Client($token);
 
 ### Rubrics
 ```php
-$rubrics = $client->rubric->rubrics(['q' => 'concert']);
-$rubric = $client->rubric->rubric('63e4b024-6f08-43d3-a73b-634a306bc6c6');
+$rubrics = $client->rubric->findBy(['q' => 'concert']);
+$rubric = $client->rubric->findOne('63e4b024-6f08-43d3-a73b-634a306bc6c6');
+```
+
+### Activities
+```php
+$activities = $client->activity->findBy(['q' => 'transbordeur']);
+$activity = $client->activity->findOne('63e4b024-6f08-43d3-a73b-634a306bc6c6');
 ```
 
 ### Users
 ```php
 $me = $client->user->me();
-$user = $client->user->user('63e4b024-6f08-43d3-a73b-634a306bc6c6');
+$user = $client->user->findOne('63e4b024-6f08-43d3-a73b-634a306bc6c6');
 ```
