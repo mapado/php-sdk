@@ -60,6 +60,23 @@ class Oauth
     }
 
     /**
+     * getFacebookToken
+     *
+     * @param string $facebookAccessToken
+     * @access public
+     * @return AccessToken
+     */
+    public function getFacebookToken($facebookAccessToken)
+    {
+        return $this->callOauth([
+            'client_id' => $this->clientId,
+            'client_secret' => $this->clientSecret,
+            'grant_type' => 'https://facebookaccesstoken.oauth.mapado.com',
+            'facebook_access_token' => $facebookAccessToken,
+        ]);
+    }
+
+    /**
      * refreshUserToken
      *
      * @param string $refreshToken
