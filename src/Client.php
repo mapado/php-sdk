@@ -55,11 +55,13 @@ class Client
         $activityTransformer = new Transformer\ActivityTransformer($addressTransformer);
         $rubricTransformer = new Transformer\RubricTransformer();
         $userTransformer = new Transformer\UserTransformer();
+        $favoriteTransformer = new Transformer\FavoriteTransformer($activityTransformer);
 
         // create client
         $this->rubric = new Client\RubricClient($accessToken, $rubricTransformer);
         $this->user = new Client\UserClient($accessToken, $userTransformer);
         $this->activity = new Client\ActivityClient($accessToken, $activityTransformer);
         $this->address = new Client\AddressClient($accessToken, $addressTransformer);
+        $this->favorites = new Client\FavoriteClient($accessToken, $favoriteTransformer);
     }
 }
