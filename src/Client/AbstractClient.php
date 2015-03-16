@@ -2,10 +2,11 @@
 
 namespace Mapado\Sdk\Client;
 
+use GuzzleHttp\Client as HttpClient;
 use Mapado\Sdk\Model\AccessToken;
 use Mapado\Sdk\Transformer\TransformerInterface;
 
-abstract class AbstractClient extends \GuzzleHttp\Client
+abstract class AbstractClient
 {
     const VERSION_URL = '/v1';
     const HOST = 'https://api.mapado.com';
@@ -29,12 +30,14 @@ abstract class AbstractClient extends \GuzzleHttp\Client
     /**
      * __construct
      *
+     * @param HttpClient $http
      * @param AccessToken $accessToken
      * @param TransformerInterface $transformer
      * @access public
      */
-    public function __construct(AccessToken $accessToken, TransformerInterface $transformer = null)
+    public function __construct(HttpClient $http, AccessToken $accessToken, TransformerInterface $transformer = null)
     {
+        $this->http = $http;
         $this->accessToken = $accessToken;
         $this->transformer = $transformer;
 
@@ -59,7 +62,7 @@ abstract class AbstractClient extends \GuzzleHttp\Client
         $url = self::VERSION_URL . $this->getRootUrl() . $url;
         $auth = 'Bearer ' . $this->accessToken->getAccessToken();
 
-        return parent::get($url, ['headers' => [ 'Authorization' => $auth ]]);
+        return $this->http->get($url, ['headers' => [ 'Authorization' => $auth ]]);
     }
 
     /**

@@ -17,12 +17,12 @@ class Oauth
      * @param string $clientSecret
      * @access public
      */
-    public function __construct($clientId, $clientSecret)
+    public function __construct(HttpClient $http, $clientId, $clientSecret)
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
 
-        $this->http = new HttpClient(['base_url' => self::HOST]);
+        $this->http = $http;
     }
 
     /**
@@ -103,7 +103,7 @@ class Oauth
     private function callOauth($datas)
     {
         $response = $this->http->post(
-            self::TOKEN_URL,
+            self::HOST . self::TOKEN_URL,
             [
                 'body' => $datas
             ]
@@ -134,5 +134,20 @@ class Oauth
         }
 
         return $model;
+    }
+
+    /**
+     * createClient
+     *
+     * @param string $clientId
+     * @param string $clientSecret
+     * @static
+     * @access public
+     * @return Oauth
+     */
+    public static function createClient($clientId, $clientSecret)
+    {
+        $client = new HttpClient(); //['base_url' => self::HOST]);
+        return new self($client, $clientId, $clientSecret);
     }
 }

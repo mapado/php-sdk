@@ -41,6 +41,22 @@ class Client
     public $activity;
 
     /**
+     * address
+     *
+     * @var Client\AddressClient
+     * @access public
+     */
+    public $address;
+
+    /**
+     * favorites
+     *
+     * @var Client\FavoriteClient
+     * @access public
+     */
+    public $favorites;
+
+    /**
      * __construct
      *
      * @param AccessToken $accessToken
