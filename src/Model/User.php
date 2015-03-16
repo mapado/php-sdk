@@ -35,7 +35,7 @@ class User
      */
     public function getUuid()
     {
-        return $this->$uuid;
+        return $this->uuid;
     }
 
     /**
