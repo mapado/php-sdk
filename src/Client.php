@@ -2,6 +2,7 @@
 
 namespace Mapado\Sdk;
 
+use GuzzleHttp\Client as HttpClient;
 use Mapado\Sdk\Client;
 use Mapado\Sdk\Model\AccessToken;
 use Mapado\Sdk\Transformer;
@@ -56,6 +57,11 @@ class Client
      */
     public $favorites;
 
+    public function __construct(HttpClient $http)
+    {
+        $this->http = $http;
+    }
+
     /**
      * __construct
      *
@@ -74,10 +80,23 @@ class Client
         $favoriteTransformer = new Transformer\FavoriteTransformer($activityTransformer);
 
         // create client
-        $this->rubric = new Client\RubricClient($accessToken, $rubricTransformer);
-        $this->user = new Client\UserClient($accessToken, $userTransformer);
-        $this->activity = new Client\ActivityClient($accessToken, $activityTransformer);
-        $this->address = new Client\AddressClient($accessToken, $addressTransformer);
-        $this->favorites = new Client\FavoriteClient($accessToken, $favoriteTransformer);
+        $this->rubric = new Client\RubricClient($this->http, $accessToken, $rubricTransformer);
+        $this->user = new Client\UserClient($this->http, $accessToken, $userTransformer);
+        $this->activity = new Client\ActivityClient($this->http, $accessToken, $activityTransformer);
+        $this->address = new Client\AddressClient($this->http, $accessToken, $addressTransformer);
+        $this->favorites = new Client\FavoriteClient($this->http, $accessToken, $favoriteTransformer);
+    }
+
+    /**
+     * createClient
+     *
+     * @static
+     * @access public
+     * @return Client
+     */
+    public static function createClient()
+    {
+        $client = new HttpClient();
+        return new self($client);
     }
 }

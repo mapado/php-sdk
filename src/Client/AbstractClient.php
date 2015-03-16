@@ -40,8 +40,6 @@ abstract class AbstractClient
         $this->http = $http;
         $this->accessToken = $accessToken;
         $this->transformer = $transformer;
-
-        parent::__construct(['base_url' => self::HOST]);
     }
 
     /**
@@ -59,7 +57,7 @@ abstract class AbstractClient
             $url .= '?' . http_build_query($parameters);
         }
 
-        $url = self::VERSION_URL . $this->getRootUrl() . $url;
+        $url = self::HOST . self::VERSION_URL . $this->getRootUrl() . $url;
         $auth = 'Bearer ' . $this->accessToken->getAccessToken();
 
         return $this->http->get($url, ['headers' => [ 'Authorization' => $auth ]]);

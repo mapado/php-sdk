@@ -145,9 +145,10 @@ class Oauth
      * @access public
      * @return Oauth
      */
-    public static function createClient($clientId, $clientSecret)
+    public static function createOauth($clientId, $clientSecret)
     {
-        $client = new HttpClient(); //['base_url' => self::HOST]);
+        // inject http client
+        $client = new HttpClient();
         return new self($client, $clientId, $clientSecret);
     }
 }

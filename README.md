@@ -11,7 +11,7 @@ composer require "mapado/php-sdk:~0.1"
 
 ### Get a token
 ```php
-$oauth = new \Mapado\Sdk\Oauth('your_client_id', 'your_client_secret');
+$oauth = \Mapado\Sdk\Oauth::createOauth('your_client_id', 'your_client_secret');
 // get a client token (ie. anonymous user)
 $token = $oauth->getClientToken();
 
@@ -30,7 +30,7 @@ $token = $oauth->refreshUserToken('refresh_token');
 
 ### Create a client
 ```php
-$client = new \Mapado\Sdk\Client($token);
+$client = \Mapado\Sdk\Client::createClient($token);
 ```
 
 ### Rubrics
