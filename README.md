@@ -1,4 +1,4 @@
-PHP SDK for Mapado API
+PHP SDK for Mapado API [![Build Status](https://travis-ci.org/mapado/php-sdk.svg?branch=master)](https://travis-ci.org/mapado/php-sdk)
 =======
 
 ## Installation
