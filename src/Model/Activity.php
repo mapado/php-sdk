@@ -127,6 +127,14 @@ class Activity
     private $address;
 
     /**
+     * frontPlaceName
+     *
+     * @var string
+     * @access private
+     */
+    private $frontPlaceName;
+
+    /**
      * Get uuid.
      *
      * @return string
@@ -438,6 +446,28 @@ class Activity
     public function setAddress(Address $address)
     {
         $this->address = $address;
+        return $this;
+    }
+
+    /**
+     * Getter for frontPlaceName
+     *
+     * return string
+     */
+    public function getFrontPlaceName()
+    {
+        return $this->frontPlaceName;
+    }
+
+    /**
+     * Setter for frontPlaceName
+     *
+     * @param string $frontPlaceName
+     * @return Activity
+     */
+    public function setFrontPlaceName($frontPlaceName)
+    {
+        $this->frontPlaceName = $frontPlaceName;
         return $this;
     }
 }
