@@ -3,6 +3,7 @@
 namespace Mapado\Sdk\Tests\Units;
 
 use atoum;
+use GuzzleHttp\Client as HttpClient;
 use Symfony\Component\Yaml\Yaml;
 
 class Oauth extends atoum
@@ -40,6 +41,14 @@ class Oauth extends atoum
     private $password;
 
     /**
+     * http
+     *
+     * @var HttpClient
+     * @access private
+     */
+    private $http;
+
+    /**
      * beforeTestMethod
      *
      * @param string $method
@@ -50,6 +59,7 @@ class Oauth extends atoum
     {
         $params = Yaml::parse(file_get_contents(__DIR__ . '/../parameters.yml'))['parameters'];
 
+        $this->http = new HttpClient();
         $this->clientId = $params['client_id'];
         $this->clientSecret = $params['client_secret'];
         $this->username = $params['username'];
@@ -65,7 +75,7 @@ class Oauth extends atoum
     public function testClientToken()
     {
         $this
-            ->given($this->newTestedInstance($this->clientId, $this->clientSecret))
+            ->given($this->newTestedInstance($this->http, $this->clientId, $this->clientSecret))
 
                 ->if($token = $this->testedInstance->getClientToken())
                 ->object($token)
@@ -75,7 +85,7 @@ class Oauth extends atoum
                 ->variable($token->getRefreshToken())
                     ->isNull()
 
-            ->if($this->newTestedInstance('wrong client_id', 'wrong client password'))
+            ->if($this->newTestedInstance($this->http, 'wrong client_id', 'wrong client password'))
             ->then
                 ->exception(function () {
                     $this->testedInstance->getClientToken();
@@ -93,7 +103,7 @@ class Oauth extends atoum
     public function testPasswordToken()
     {
         $this
-            ->if($this->newTestedInstance($this->clientId, $this->clientSecret))
+            ->if($this->newTestedInstance($this->http, $this->clientId, $this->clientSecret))
             ->then
                 ->exception(function () {
                     $this->testedInstance->getUserToken('no_user', 'wrong_password');
@@ -118,7 +128,7 @@ class Oauth extends atoum
     public function testRefreshToken()
     {
         $this
-            ->given($this->newTestedInstance($this->clientId, $this->clientSecret))
+            ->given($this->newTestedInstance($this->http, $this->clientId, $this->clientSecret))
             ->and($token = $this->testedInstance->getUserToken('test@mapado.com', 'test'))
             ->if($rToken = $this->testedInstance->refreshUserToken($token->getRefreshToken()))
             ->then
