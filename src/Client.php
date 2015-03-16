@@ -57,19 +57,15 @@ class Client
      */
     public $favorites;
 
-    public function __construct(HttpClient $http)
-    {
-        $this->http = $http;
-    }
-
     /**
      * __construct
      *
      * @param AccessToken $accessToken
      * @access public
      */
-    public function __construct(AccessToken $accessToken)
+    public function __construct(HttpClient $http, AccessToken $accessToken)
     {
+        $this->http =  $http;
         $this->accessToken = $accessToken;
 
         // create transformers
@@ -94,9 +90,9 @@ class Client
      * @access public
      * @return Client
      */
-    public static function createClient()
+    public static function createClient(AccessToken $token)
     {
         $client = new HttpClient();
-        return new self($client);
+        return new self($client, $token);
     }
 }
