@@ -64,6 +64,10 @@ class ActivityTransformer extends AbstractTransformer
             $activity->setLastDate(new DateTime($item['last_date']));
         }
 
+        if (!empty($item['_embedded']['images'])) {
+            $activity->setImageUrlList($item['_embedded']['images']);
+        }
+
         return $activity;
     }
 }

@@ -134,6 +134,8 @@ class Activity
      */
     private $frontPlaceName;
 
+    private $imageUrlList;
+
     /**
      * Get uuid.
      *
@@ -468,6 +470,28 @@ class Activity
     public function setFrontPlaceName($frontPlaceName)
     {
         $this->frontPlaceName = $frontPlaceName;
+        return $this;
+    }
+
+    /**
+     * Getter for imageUrlList
+     *
+     * return array
+     */
+    public function getImageUrlList()
+    {
+        return $this->imageUrlList;
+    }
+
+    /**
+     * Setter for imageUrlList
+     *
+     * @param array $imageUrlList
+     * @return Activity
+     */
+    public function setImageUrlList(array $imageUrlList)
+    {
+        $this->imageUrlList = $imageUrlList;
         return $this;
     }
 }
