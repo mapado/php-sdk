@@ -10,9 +10,19 @@ class FavoriteClient extends AbstractClient
 {
     const FAVORITE_URL = '/users';
 
-    public function findByUserUuid($userUuid)
+    /**
+     * findByUserUuid
+     *
+     * @param string $userUuid
+     * @access public
+     * @return array
+     */
+    public function findByUserUuid($userUuid, array $parameters = [])
     {
-        return $this->transformer->transformList($this->apiGet('/' . $userUuid . '/favorites')->json());
+        $url = '/' . $userUuid . '/favorites';
+        $activityList = $this->apiGet($url, $parameters)->json();
+
+        return $this->transformer->transformList($activityList);
     }
 
     /**
