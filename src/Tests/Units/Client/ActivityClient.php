@@ -54,4 +54,32 @@ class ActivityClient extends atoum
                 ->contains('image_sizes%5B1%5D=640x320')
         ;
     }
+
+    public function testFindOne()
+    {
+        $http = new HttpClient();
+        $history = new History();
+        $mock = new Mock(
+            [
+                new Response(
+                    200,
+                    [],
+                    Stream::factory('{"data":[]}')
+                ),
+            ]
+        );
+
+        $http->getEmitter()->attach($mock);
+        $http->getEmitter()->attach($history);
+
+        $this
+            ->given($instance = $this->newTestedInstance($http, $this->token, $this->transformer))
+            ->then
+                ->object($instance->findOne('abc', ['image_sizes' => ['320x160', '640x320']]))
+            ->given($lastRequest = $history->getLastRequest())
+            ->then
+                ->string($lastRequest->getUrl())
+                ->contains('/activities/abc?image_sizes%5B0%5D=320x160&image_sizes%5B1%5D=640x320')
+        ;
+    }
 }

@@ -22,12 +22,14 @@ class ActivityClient extends AbstractClient
      * find one activity by uuid
      *
      * @param string $uuid
+     * @param array $parameters
      * @access public
      * @return array
      */
-    public function findOne($uuid)
+    public function findOne($uuid, array $parameters = [])
     {
-        return $this->transformer->transformItem($this->apiGet('/' . $uuid)->json());
+        $list = $this->apiGet('/' . $uuid, $parameters)->json();
+        return $this->transformer->transformItem($list);
     }
 
     /**
