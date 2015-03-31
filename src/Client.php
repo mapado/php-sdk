@@ -58,6 +58,14 @@ class Client
     public $favorites;
 
     /**
+     * userList
+     *
+     * @var Client\UserListClient
+     * @access public
+     */
+    public $userList;
+
+    /**
      * __construct
      *
      * @param AccessToken $accessToken
@@ -81,6 +89,7 @@ class Client
         $this->activity = new Client\ActivityClient($this->http, $accessToken, $activityTransformer);
         $this->address = new Client\AddressClient($this->http, $accessToken, $addressTransformer);
         $this->favorites = new Client\FavoriteClient($this->http, $accessToken, $favoriteTransformer);
+        $this->userList = new Client\UserListClient($this->http, $accessToken, $activityTransformer);
     }
 
     /**
