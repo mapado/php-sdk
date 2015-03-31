@@ -47,7 +47,7 @@ $activity = $client->activity->findOne('63e4b024-6f08-43d3-a73b-634a306bc6c6');
 ```
 Will return an array or an instance of [Activity](https://github.com/mapado/php-sdk/blob/master/src/Model/Activity.php)
 
-### #Program
+#### Program
 If an activity contains a program, you can get it by doing this call
 ```php
 $activityList = $client->activity->program('63e4b024-6f08-43d3-a73b-634a306bc6c6');
