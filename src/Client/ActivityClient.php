@@ -39,9 +39,9 @@ class ActivityClient extends AbstractClient
      * @access public
      * @return array
      */
-    public function program($uuid)
+    public function program($uuid, array $parameters = [])
     {
-        return $this->apiGet('/' . $uuid . '/program')->json();
+        return $this->apiGet('/' . $uuid . '/program', $parameters)->json();
     }
 
     /**
