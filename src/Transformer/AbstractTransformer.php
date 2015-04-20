@@ -9,18 +9,24 @@ abstract class AbstractTransformer implements TransformerInterface
     /**
      * {@inheritedDoc}
      */
-    public function transformList(array $list, $key = 'data')
+    public function transformList(array $input, $key = 'data')
     {
-        $datas = !empty($key) ? $list[$key] : $list;
+        $datas = !empty($key) ? $input[$key] : $input;
 
         $return = [];
         foreach ($datas as $item) {
             $return[] = $this->transformItem($item);
         }
 
-        $list = new MapadoList(new \ArrayIterator($return));
+        $return = new MapadoList(new \ArrayIterator($return));
+        $return->setLimit($this->getFromArray($input, 'limit'))
+            ->setTotalHits($this->getFromArray($input, 'total_hits'))
+            ->setPage($this->getFromArray($input, 'page'))
+            ->setPages($this->getFromArray($input, 'pages'))
+            ->setLinks($this->getFromArray($input, '_links'))
+        ;
 
-        return $list;
+        return $return;
     }
 
     /**

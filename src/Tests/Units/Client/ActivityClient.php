@@ -36,7 +36,7 @@ class ActivityClient extends atoum
                 new Response(
                     200,
                     [],
-                    Stream::factory('{"data":[]}')
+                    Stream::factory(file_get_contents(__DIR__ . '/../../data/activity-list.json'))
                 ),
             ]
         );
@@ -47,8 +47,19 @@ class ActivityClient extends atoum
         $this
             ->given($instance = $this->newTestedInstance($http, $this->token, $this->transformer))
             ->then
-                ->object($instance->findBy(['image_sizes' => ['320x160', '640x320']]))
-                    ->isInstanceOf('IteratorAggregate')
+                ->given($list = $instance->findBy(['image_sizes' => ['320x160', '640x320']]))
+                ->object($list)
+                    ->isInstanceOf('Mapado\Sdk\Model\MapadoList')
+                ->integer($list->getLimit())
+                    ->isEqualTo(9)
+                ->integer($list->getPage())
+                    ->isEqualTo(2)
+                ->integer($list->getPages())
+                    ->isEqualTo(9765)
+                ->integer($list->getTotalHits())
+                    ->isEqualTo(87879)
+                ->array($list->getLinks())
+                    ->size->isEqualTo(5)
             ->given($lastRequest = $history->getLastRequest())
             ->then
                 ->string($lastRequest->getUrl())
