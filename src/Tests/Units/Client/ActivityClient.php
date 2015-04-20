@@ -102,7 +102,7 @@ class ActivityClient extends atoum
         $handler = new MockHandler(
             [
                 'status' => 200,
-                'body' => '{"data":[]}'
+                'body' => file_get_contents(__DIR__ . '/../../data/transbordeur-program.json'),
             ]
         );
         $http = new HttpClient([ 'handler' => $handler ]);
@@ -112,11 +112,14 @@ class ActivityClient extends atoum
         $this
             ->given($instance = $this->newTestedInstance($http, $this->token, $this->transformer))
             ->then
-                ->array($instance->program('uuid'))
+                ->given($program = $instance->program('uuid'))
+                ->array($program)
                 ->if($lastRequest = $history->getLastRequest())
                 ->then
                     ->string($lastRequest->getUrl())
                     ->contains('/activities/uuid/program')
+                ->object(current($program))
+                    ->isInstanceOf('Mapado\Sdk\Model\Activity')
 
             ->then
                 ->array($instance->program('uuid', ['limit' => 20]))
