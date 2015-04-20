@@ -47,7 +47,8 @@ class ActivityClient extends atoum
         $this
             ->given($instance = $this->newTestedInstance($http, $this->token, $this->transformer))
             ->then
-                ->array($instance->findBy(['image_sizes' => ['320x160', '640x320']]))
+                ->object($instance->findBy(['image_sizes' => ['320x160', '640x320']]))
+                    ->isInstanceOf('IteratorAggregate')
             ->given($lastRequest = $history->getLastRequest())
             ->then
                 ->string($lastRequest->getUrl())
@@ -113,22 +114,25 @@ class ActivityClient extends atoum
             ->given($instance = $this->newTestedInstance($http, $this->token, $this->transformer))
             ->then
                 ->given($program = $instance->program('uuid'))
-                ->array($program)
+                ->object($program)
+                    ->isInstanceOf('IteratorAggregate')
                 ->if($lastRequest = $history->getLastRequest())
                 ->then
                     ->string($lastRequest->getUrl())
                     ->contains('/activities/uuid/program')
-                ->object(current($program))
+                ->object($program->getIterator()->current())
                     ->isInstanceOf('Mapado\Sdk\Model\Activity')
 
             ->then
-                ->array($instance->program('uuid', ['limit' => 20]))
+                ->object($instance->program('uuid', ['limit' => 20]))
+                    ->isInstanceOf('IteratorAggregate')
                 ->then
                     ->string($history->getLastRequest()->getUrl())
                     ->contains('/activities/uuid/program?limit=20')
 
             ->then
-                ->array($instance->program('uuid', ['limit' => 20, 'offset' => 30]))
+                ->object($instance->program('uuid', ['limit' => 20, 'offset' => 30]))
+                    ->isInstanceOf('IteratorAggregate')
                 ->then
                     ->string($history->getLastRequest()->getUrl())
                     ->contains('/activities/uuid/program?limit=20&offset=30')

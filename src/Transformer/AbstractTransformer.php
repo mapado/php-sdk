@@ -2,6 +2,8 @@
 
 namespace Mapado\Sdk\Transformer;
 
+use Mapado\Sdk\Model\MapadoList;
+
 abstract class AbstractTransformer implements TransformerInterface
 {
     /**
@@ -9,13 +11,16 @@ abstract class AbstractTransformer implements TransformerInterface
      */
     public function transformList(array $list, $key = 'data')
     {
-        $return = [];
         $datas = !empty($key) ? $list[$key] : $list;
+
+        $return = [];
         foreach ($datas as $item) {
             $return[] = $this->transformItem($item);
         }
 
-        return $return;
+        $list = new MapadoList(new \ArrayIterator($return));
+
+        return $list;
     }
 
     /**
