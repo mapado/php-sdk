@@ -31,6 +31,14 @@ class Activity
     private $description;
 
     /**
+     * shortDescription
+     *
+     * @var string
+     * @access private
+     */
+    private $shortDescription;
+
+    /**
      * simplePrice
      *
      * @var float
@@ -196,6 +204,28 @@ class Activity
     public function setDescription($description)
     {
         $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * Getter for shortDescription
+     *
+     * return string
+     */
+    public function getShortDescription()
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * Setter for shortDescription
+     *
+     * @param string $shortDescription
+     * @return Activity
+     */
+    public function setShortDescription($shortDescription)
+    {
+        $this->shortDescription = $shortDescription;
         return $this;
     }
 

@@ -42,6 +42,7 @@ class ActivityTransformer extends AbstractTransformer
             ->setUuid($this->getFromArray($item, 'uuid'))
             ->setTitle($this->getFromArray($item, 'title'))
             ->setDescription($this->getFromArray($item, 'description'))
+            ->setShortDescription($this->getFromArray($item, 'short_description'))
             ->setFrontPlaceName($this->getFromArray($item, 'front_place_name'))
             ->setSimplePrice($this->getFromArray($item, 'simple_price'))
             ->setUrlList($this->getFromArray($item, 'url_list'))
