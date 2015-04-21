@@ -38,21 +38,21 @@ $client = \Mapado\Sdk\Client::createClient($token);
 $rubrics = $client->rubric->findBy(['q' => 'concert']);
 $rubric = $client->rubric->findOne('63e4b024-6f08-43d3-a73b-634a306bc6c6');
 ```
-Will return an array or an instance of [Rubric](https://github.com/mapado/php-sdk/blob/master/src/Model/Rubric.php)
+Will return an MapadoList or an instance of [Rubric](https://github.com/mapado/php-sdk/blob/master/src/Model/Rubric.php)
 
 ### Activities
 ```php
 $activities = $client->activity->findBy(['q' => 'transbordeur', latlng => '45.468,4.263']);
 $activity = $client->activity->findOne('63e4b024-6f08-43d3-a73b-634a306bc6c6');
 ```
-Will return an array or an instance of [Activity](https://github.com/mapado/php-sdk/blob/master/src/Model/Activity.php)
+Will return an MapadoList or an instance of [Activity](https://github.com/mapado/php-sdk/blob/master/src/Model/Activity.php)
 
 #### Program
 If an activity contains a program, you can get it by doing this call
 ```php
 $activityList = $client->activity->program('63e4b024-6f08-43d3-a73b-634a306bc6c6');
 ```
-Will return an array or an instance of [Activity](https://github.com/mapado/php-sdk/blob/master/src/Model/Activity.php)
+Will return an MapadoList or an instance of [Activity](https://github.com/mapado/php-sdk/blob/master/src/Model/Activity.php)
 
 ### Users
 ```php
@@ -71,7 +71,13 @@ $userList = $client->userList->findByUuid('63e4b024-6f08-43d3-a73b-634a306bc6c6'
 $firstUserList = current($userList); // just for the doc, you may want a more clever logic
 $activityList = $client->activity->program($firstUserList->getUuid());
 ```
-Will return an array or an instance of [Activity](https://github.com/mapado/php-sdk/blob/master/src/Model/Activity.php)
+Will return an MapadoList or an instance of [Activity](https://github.com/mapado/php-sdk/blob/master/src/Model/Activity.php)
+
+### List objects
+Lists results will be contained in a [MapadoList](https://github.com/mapado/php-sdk/blob/master/src/Model/MapadoList.php) object.
+The list object is traversable (you can iterate on it with a foreach),
+and may contains some informations like totalhits, page, etc.
+
 
 ### Other calls
 Every endpoint listed in our documentation *should* be available like the one atop.
