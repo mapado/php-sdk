@@ -69,6 +69,10 @@ class ActivityTransformer extends AbstractTransformer
             $activity->setImageUrlList($item['_embedded']['images']);
         }
 
+        if (!empty($item['_links'])) {
+            $activity->setLinks($item['_links']);
+        }
+
         return $activity;
     }
 }

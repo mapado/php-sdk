@@ -145,6 +145,14 @@ class Activity
     private $imageUrlList;
 
     /**
+     * links
+     *
+     * @var array
+     * @access private
+     */
+    private $links;
+
+    /**
      * Get uuid.
      *
      * @return string
@@ -522,6 +530,28 @@ class Activity
     public function setImageUrlList(array $imageUrlList)
     {
         $this->imageUrlList = $imageUrlList;
+        return $this;
+    }
+
+    /**
+     * Getter for links
+     *
+     * return array
+     */
+    public function getLinks()
+    {
+        return $this->links;
+    }
+
+    /**
+     * Setter for links
+     *
+     * @param array $links
+     * @return Activity
+     */
+    public function setLinks(array $links)
+    {
+        $this->links = $links;
         return $this;
     }
 }
