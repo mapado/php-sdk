@@ -59,7 +59,9 @@ class UserListClient extends atoum
         $this
             ->given($instance = $this->newTestedInstance($http, $this->token, $this->transformer))
             ->then
-                ->array($instance->findByUserUuid('user-id', ['image_sizes' => ['320x160', '640x320']]))
+                ->given($list = $instance->findByUserUuid('user-id', ['image_sizes' => ['320x160', '640x320']]))
+                ->object($list)
+                    ->isInstanceOf('Mapado\Sdk\Model\MapadoList')
             ->given($lastRequest = $history->getLastRequest())
             ->then
                 ->string($lastRequest->getUrl())
