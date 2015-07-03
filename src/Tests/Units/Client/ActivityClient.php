@@ -60,6 +60,12 @@ class ActivityClient extends atoum
                     ->isEqualTo(87879)
                 ->array($list->getLinks())
                     ->size->isEqualTo(5)
+                ->if($activity = $list->getIterator()->current())
+                ->then
+                    ->object($activity->getAddress())
+                        ->isInstanceOf('Mapado\Sdk\Model\Address')
+                    ->float($activity->getAddress()->getLatitude())
+                        ->isNearlyEqualTo(43.2959311)
             ->given($lastRequest = $history->getLastRequest())
             ->then
                 ->string($lastRequest->getUrl())
