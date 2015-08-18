@@ -66,6 +66,14 @@ class Client
     public $userList;
 
     /**
+     * suggest Code
+     *
+     * @var Client\SuggestCodeClient
+     * @access public
+     */
+    public $suggestCode;
+
+    /**
      * __construct
      *
      * @param AccessToken $accessToken
@@ -77,19 +85,21 @@ class Client
         $this->accessToken = $accessToken;
 
         // create transformers
-        $addressTransformer = new Transformer\AddressTransformer();
-        $activityTransformer = new Transformer\ActivityTransformer($addressTransformer);
-        $rubricTransformer = new Transformer\RubricTransformer();
-        $userTransformer = new Transformer\UserTransformer();
-        $favoriteTransformer = new Transformer\FavoriteTransformer($activityTransformer);
+        $addressTransformer     = new Transformer\AddressTransformer();
+        $activityTransformer    = new Transformer\ActivityTransformer($addressTransformer);
+        $rubricTransformer      = new Transformer\RubricTransformer();
+        $userTransformer        = new Transformer\UserTransformer();
+        $favoriteTransformer    = new Transformer\FavoriteTransformer($activityTransformer);
+        $suggestCodeTransformer = new Transformer\suggestCodeTransformer();
 
         // create client
-        $this->rubric = new Client\RubricClient($this->http, $accessToken, $rubricTransformer);
-        $this->user = new Client\UserClient($this->http, $accessToken, $userTransformer);
-        $this->activity = new Client\ActivityClient($this->http, $accessToken, $activityTransformer);
-        $this->address = new Client\AddressClient($this->http, $accessToken, $addressTransformer);
-        $this->favorites = new Client\FavoriteClient($this->http, $accessToken, $favoriteTransformer);
-        $this->userList = new Client\UserListClient($this->http, $accessToken, $activityTransformer);
+        $this->rubric      = new Client\RubricClient($this->http, $accessToken, $rubricTransformer);
+        $this->user        = new Client\UserClient($this->http, $accessToken, $userTransformer);
+        $this->activity    = new Client\ActivityClient($this->http, $accessToken, $activityTransformer);
+        $this->address     = new Client\AddressClient($this->http, $accessToken, $addressTransformer);
+        $this->favorites   = new Client\FavoriteClient($this->http, $accessToken, $favoriteTransformer);
+        $this->userList    = new Client\UserListClient($this->http, $accessToken, $activityTransformer);
+        $this->suggestCode = new Client\SuggestCodeClient($this->http, $accessToken, $suggestCodeTransformer);
     }
 
     /**
