@@ -90,7 +90,7 @@ class Client
         $rubricTransformer      = new Transformer\RubricTransformer();
         $userTransformer        = new Transformer\UserTransformer();
         $favoriteTransformer    = new Transformer\FavoriteTransformer($activityTransformer);
-        $suggestCodeTransformer = new Transformer\suggestCodeTransformer();
+        $suggestCodeTransformer = new Transformer\SuggestCodeTransformer();
 
         // create client
         $this->rubric      = new Client\RubricClient($this->http, $accessToken, $rubricTransformer);
