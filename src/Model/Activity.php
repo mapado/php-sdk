@@ -135,6 +135,14 @@ class Activity
     private $address;
 
     /**
+     * rubric
+     *
+     * @var Rubric
+     * @access private
+     */
+    private $rubric;
+
+    /**
      * frontPlaceName
      *
      * @var string
@@ -488,6 +496,29 @@ class Activity
         $this->address = $address;
         return $this;
     }
+
+    /**
+     * Getter for rubric
+     *
+     * return Rubric
+     */
+    public function getRubric()
+    {
+        return $this->rubric;
+    }
+
+    /**
+     * Setter for rubric
+     *
+     * @param Rubric $rubric
+     * @return Activity
+     */
+    public function setRubric(Rubric $rubric)
+    {
+        $this->rubric = $rubric;
+        return $this;
+    }
+
 
     /**
      * Getter for frontPlaceName

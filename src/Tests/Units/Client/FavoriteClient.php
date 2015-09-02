@@ -30,7 +30,8 @@ class FavoriteClient extends atoum
     {
         $this->token = new AccessToken;
         $addressTansformer = new \Mapado\Sdk\Transformer\AddressTransformer();
-        $this->transformer = new \Mapado\Sdk\Transformer\ActivityTransformer($addressTansformer);
+        $rubricTansformer = new \Mapado\Sdk\Transformer\RubricTransformer();
+        $this->transformer = new \Mapado\Sdk\Transformer\ActivityTransformer($addressTansformer, $rubricTansformer);
     }
 
     /**

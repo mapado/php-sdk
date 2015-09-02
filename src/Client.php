@@ -86,8 +86,8 @@ class Client
 
         // create transformers
         $addressTransformer     = new Transformer\AddressTransformer();
-        $activityTransformer    = new Transformer\ActivityTransformer($addressTransformer);
         $rubricTransformer      = new Transformer\RubricTransformer();
+        $activityTransformer    = new Transformer\ActivityTransformer($addressTransformer, $rubricTransformer);
         $userTransformer        = new Transformer\UserTransformer();
         $favoriteTransformer    = new Transformer\FavoriteTransformer($activityTransformer);
         $suggestCodeTransformer = new Transformer\SuggestCodeTransformer();

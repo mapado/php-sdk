@@ -22,14 +22,23 @@ class ActivityTransformer extends AbstractTransformer
     private $addressTransformer;
 
     /**
+     * rubricTransformer
+     *
+     * @var RubricTransformer
+     * @access private
+     */
+    private $rubricTransformer;
+
+    /**
      * __construct
      *
      * @param AddressTransformer $addressTransformer
      * @access public
      */
-    public function __construct(AddressTransformer $addressTransformer)
+    public function __construct(AddressTransformer $addressTransformer, RubricTransformer $rubricTransformer)
     {
         $this->addressTransformer = $addressTransformer;
+        $this->rubricTransformer = $rubricTransformer;
     }
 
     /**
@@ -56,6 +65,10 @@ class ActivityTransformer extends AbstractTransformer
 
         if (isset($item['_embedded']['address'])) {
             $activity->setAddress($this->addressTransformer->transformItem($item['_embedded']['address']));
+        }
+
+        if (isset($item['_embedded']['rubric'])) {
+            $activity->setRubric($this->rubricTransformer->transformItem($item['_embedded']['rubric']));
         }
 
         if (!empty($item['first_date'])) {

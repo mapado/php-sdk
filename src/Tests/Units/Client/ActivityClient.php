@@ -24,7 +24,8 @@ class ActivityClient extends atoum
     {
         $this->token = new AccessToken;
         $addressTansformer = new \Mapado\Sdk\Transformer\AddressTransformer();
-        $this->transformer = new \Mapado\Sdk\Transformer\ActivityTransformer($addressTansformer);
+        $rubricTansformer = new \Mapado\Sdk\Transformer\RubricTransformer();
+        $this->transformer = new \Mapado\Sdk\Transformer\ActivityTransformer($addressTansformer, $rubricTansformer);
     }
 
     public function testFindBy()
@@ -66,6 +67,11 @@ class ActivityClient extends atoum
                         ->isInstanceOf('Mapado\Sdk\Model\Address')
                     ->float($activity->getAddress()->getLatitude())
                         ->isNearlyEqualTo(43.2959311)
+                ->then
+                    ->object($activity->getRubric())
+                        ->isInstanceOf('Mapado\Sdk\Model\Rubric')
+                    ->string($activity->getRubric()->getName())
+                        ->isEqualTo('pétanque')
             ->given($lastRequest = $history->getLastRequest())
             ->then
                 ->string($lastRequest->getUrl())
