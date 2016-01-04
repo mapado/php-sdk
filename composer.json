@@ -2,7 +2,7 @@
     "name": "mapado/php-sdk",
     "description": "PHP SDK for Mapado API",
     "require": {
-        "guzzlehttp/guzzle": "~5.0"
+        "guzzlehttp/guzzle": "5.1.0"
     },
     "require-dev": {
         "raulfraile/ladybug": "~1.0",
