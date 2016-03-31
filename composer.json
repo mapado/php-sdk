@@ -5,9 +5,9 @@
         "guzzlehttp/guzzle": "5.1.0"
     },
     "require-dev": {
-        "raulfraile/ladybug": "~1.0",
-        "atoum/atoum": "~1.0",
-        "symfony/yaml": "~2.0"
+        "raulfraile/ladybug": "^1.0",
+        "atoum/atoum": "^2.6.0",
+        "symfony/yaml": "^2.8"
     },
     "license": "MIT",
     "autoload": {
