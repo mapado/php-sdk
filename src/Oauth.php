@@ -28,15 +28,17 @@ class Oauth
     /**
      * getClientToken
      *
+     * @param string $scope
      * @access public
      * @return AccessToken
      */
-    public function getClientToken()
+    public function getClientToken($scope = 'activity:all:read')
     {
         return $this->callOauth([
             'client_id' => $this->clientId,
             'client_secret' => $this->clientSecret,
             'grant_type' => 'client_credentials',
+            'scope' => $scope,
         ]);
     }
 
@@ -45,10 +47,11 @@ class Oauth
      *
      * @param string $username
      * @param string $password
+     * @param string $scope
      * @access public
      * @return AccessToken
      */
-    public function getUserToken($username, $password)
+    public function getUserToken($username, $password, $scope = 'activity:all:read')
     {
         return $this->callOauth([
             'client_id' => $this->clientId,
@@ -56,6 +59,7 @@ class Oauth
             'grant_type' => 'password',
             'username' => $username,
             'password' => $password,
+            'scope' => $scope,
         ]);
     }
 
@@ -63,16 +67,18 @@ class Oauth
      * getFacebookToken
      *
      * @param string $facebookAccessToken
+     * @param string $scope
      * @access public
      * @return AccessToken
      */
-    public function getFacebookToken($facebookAccessToken)
+    public function getFacebookToken($facebookAccessToken, $scope = 'activity:all:read')
     {
         return $this->callOauth([
             'client_id' => $this->clientId,
             'client_secret' => $this->clientSecret,
             'grant_type' => 'https://facebookaccesstoken.oauth.mapado.com',
             'facebook_access_token' => $facebookAccessToken,
+            'scope' => $scope,
         ]);
     }
 
@@ -80,17 +86,22 @@ class Oauth
      * refreshUserToken
      *
      * @param string $refreshToken
+     * @param mixed $scope
      * @access public
      * @return AccessToken
      */
-    public function refreshUserToken($refreshToken)
+    public function refreshUserToken($refreshToken, $scope = null)
     {
-        return $this->callOauth([
+        $params = [
             'client_id' => $this->clientId,
             'client_secret' => $this->clientSecret,
             'grant_type' => 'refresh_token',
             'refresh_token' => $refreshToken,
-        ]);
+        ];
+        if ($scope) {
+            $params['scope'] = $scope;
+        }
+        return $this->callOauth($params);
     }
 
     /**
