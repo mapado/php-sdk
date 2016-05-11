@@ -61,7 +61,8 @@ class ActivityTransformer extends AbstractTransformer
             ->setCanceled($this->getFromArray($item, 'canceled'))
             ->setSoldOut($this->getFromArray($item, 'sold_out'))
             ->setShortDate($this->getFromArray($item, 'short_date'))
-            ->setImageList($this->getFromArray($item, 'image_list'));
+            ->setImageList($this->getFromArray($item, 'image_list'))
+            ->setPriceList($this->getFromArray($item, 'price_list'));
 
         if (isset($item['_embedded']['address'])) {
             $activity->setAddress($this->addressTransformer->transformItem($item['_embedded']['address']));
