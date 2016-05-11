@@ -150,6 +150,21 @@ class Activity
      */
     private $frontPlaceName;
 
+    /**
+     * priceList
+     *
+     * @var array
+     * @access private
+     */
+    private $priceList;
+
+
+    /**
+     * imageUrlList
+     *
+     * @var array
+     * @access private
+     */
     private $imageUrlList;
 
     /**
@@ -583,6 +598,28 @@ class Activity
     public function setLinks(array $links)
     {
         $this->links = $links;
+        return $this;
+    }
+
+    /**
+     * Getter for priceList
+     *
+     * return array
+     */
+    public function getPriceList()
+    {
+        return $this->priceList;
+    }
+
+    /**
+     * Setter for priceList
+     *
+     * @param array $priceList
+     * @return Activity
+     */
+    public function setPriceList(array $priceList)
+    {
+        $this->priceList = $priceList;
         return $this;
     }
 }
