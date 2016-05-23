@@ -55,7 +55,7 @@ class UserClient extends atoum
         $this
             ->given($instance = $this->newTestedInstance($http, $this->token, $this->transformer))
             ->then
-                ->exception(function() use ($instance) {
+                ->exception(function () use ($instance) {
                     $instance->me();
                 })
                     ->isInstanceOf('GuzzleHttp\Exception\ClientException')
