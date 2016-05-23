@@ -38,7 +38,7 @@ class Address
     
     /**
      * city
-     * 
+     *
      * var string
      * @access private
      */
