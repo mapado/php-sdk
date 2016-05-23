@@ -1,4 +1,4 @@
-PHP SDK for Mapado API [![Build Status](https://travis-ci.org/mapado/php-sdk.svg?branch=master)](https://travis-ci.org/mapado/php-sdk)
+PHP SDK for Mapado API [![Build Status](https://travis-ci.org/mapado/php-sdk.svg?branch=master)](https://travis-ci.org/mapado/php-sdk) [![StyleCI](https://styleci.io/repos/28038267/shield)](https://styleci.io/repos/28038267)
 =======
 
 ## Installation
