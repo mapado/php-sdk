@@ -1,13 +1,11 @@
 {
     "name": "mapado/php-sdk",
-    "description": "PHP SDK for Mapado API",
+    "description": "PHP SDK for Mapado API v2",
     "require": {
-        "guzzlehttp/guzzle": "5.3.1"
+        "guzzlehttp/guzzle": "^6.2.2"
     },
     "require-dev": {
-        "raulfraile/ladybug": "^1.0",
-        "atoum/atoum": "^2.6.0",
-        "symfony/yaml": "^2.8"
+        "atoum/atoum": "^3"
     },
     "license": "MIT",
     "autoload": {
