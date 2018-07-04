@@ -1,10 +1,10 @@
 <?php 
-namespace Acme\Foo\Bar;
+namespace Mapado\Sdk\Entity;
 
 use Mapado\RestClientSdk\Mapping\Annotations as Rest;
 
 /**
- * @Rest\Entity(key="activity")
+ * @Rest\Entity(key="activities")
  */
 class Activity {
     /**
