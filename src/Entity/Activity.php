@@ -38,15 +38,20 @@ class Activity {
      */
     private $shortDescription;
 
-    // Liste d'image (tableau string)
+    // Liste d'image (tableau)
     /**
-     * @Rest\Attribute(name="imageList", type="arrayList")
+     * @Rest\Attribute(name="imageList", type="array")
      */
     private $imageList;
 
-    // Liste d'image (tableau string)
     /**
-     * @Rest\Attribute(name="audioList", type="arrayList")
+     * @Rest\Attribute(name="imageSizes", type="array")
+     */
+    private $imageSizes;
+
+    // Liste audio (tableau)
+    /**
+     * @Rest\Attribute(name="audioList", type="array")
      */
     private $audioList;
     
@@ -66,17 +71,17 @@ class Activity {
     private $simplePrice;
 
     /**
-     * @Rest\Attribute(name="urlList", type="arrayList")
+     * @Rest\Attribute(name="urlList", type="array")
      */
     private $urlList;
 
     /**
-     * @Rest\Attribute(name="emailList", type="arrayList")
+     * @Rest\Attribute(name="emailList", type="array")
      */
     private $emailList;
 
     /**
-     * @Rest\Attribute(name="phoneList", type="arrayList")
+     * @Rest\Attribute(name="phoneList", type="array")
      */
     private $phoneList;
 
@@ -111,12 +116,12 @@ class Activity {
     private $soldOut;
 
     /**
-     * @Rest\Attribute(name="semanticTags", type="arrayList")
+     * @Rest\Attribute(name="semanticTags", type="array")
      */
     private $semanticTags;
 
     /**
-     * @Rest\Attribute(name="externalMediaList", type="arrayList")
+     * @Rest\Attribute(name="externalMediaList", type="array")
      */
     private $externalMediaList;
 
@@ -708,6 +713,26 @@ class Activity {
     public function setAddress($address)
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imageSizes
+     */ 
+    public function getImageSizes()
+    {
+        return $this->imageSizes;
+    }
+
+    /**
+     * Set the value of imageSizes
+     *
+     * @return  self
+     */ 
+    public function setImageSizes($imageSizes)
+    {
+        $this->imageSizes = $imageSizes;
 
         return $this;
     }
