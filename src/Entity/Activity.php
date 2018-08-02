@@ -4,7 +4,7 @@ namespace Mapado\Sdk\Entity;
 use Mapado\RestClientSdk\Mapping\Annotations as Rest;
 
 /**
- * @Rest\Entity(key="activities")
+ * @Rest\Entity(key="activities", repository="\Mapado\Sdk\Entity\Repository\ActivityRepository")
  */
 class Activity {
     /**
@@ -154,6 +154,11 @@ class Activity {
      * @Rest\Attribute(name="address", type="string")
      */
     private $address;
+
+    /**
+     * @Rest\Attribute(name="slug", type="string")
+     */
+    private $slug;
 
     // getters & setters
 
@@ -733,6 +738,26 @@ class Activity {
     public function setImageSizes($imageSizes)
     {
         $this->imageSizes = $imageSizes;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of slug
+     */ 
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set the value of slug
+     *
+     * @return  self
+     */ 
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
 
         return $this;
     }
