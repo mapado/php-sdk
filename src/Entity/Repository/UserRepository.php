@@ -9,7 +9,8 @@ class UserRepository extends EntityRepository
         // generate the path to call
         // api.mapado.net/v2/me?
         try{
-            $path = "/v2/me?fields=".$param['fields'];        
+            dump($param['fields']);
+            $path = "/v2/me?fields=".$param['fields'];    
             $data = $this->restClient->get($path);
             return $this->sdk->getModelHydrator()->hydrate($data, $this->entityName); // hydrate for an entity, hydrateList for a list
         }catch(\RestClientException $e) {
@@ -33,11 +34,5 @@ class UserRepository extends EntityRepository
             dump($body); // will dump your response body
         }
         return;
-    }
-
-    public function test($uuid){
-        // path to call 
-        // api.mapado.com/activities/{slug}
-        
     }
 }
