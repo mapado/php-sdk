@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace Mapado\Sdk\Entity\Repository;
 use \Mapado\RestClientSdk\EntityRepository;
 use Mapado\RestClientSdk\Exception\RestClientException;
@@ -14,7 +14,6 @@ class ActivityRepository extends EntityRepository
         }catch(\RestClientException $e) {
             $response = $e->getResponse(); // $response should be a Psr\Http\Message\ResponseInterface
             $body = $response->getBody();
-            var_dump($body); // will dump your response body
         }
         return;
     }
