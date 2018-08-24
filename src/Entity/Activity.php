@@ -56,7 +56,7 @@ class Activity {
     private $audioList;
     
     /**
-     * @Rest\Attribute(name="place", type="string")
+     * @Rest\ManyToOne(name="place", targetEntity="Activity")
      */
     private $place;
 
