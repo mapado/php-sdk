@@ -1,15 +1,20 @@
 {
     "name": "mapado/php-sdk",
     "description": "PHP SDK for Mapado API v2",
+    "license": "MIT",
     "require": {
+        "guzzlehttp/guzzle": "^6.2.2",
+        "mapado/league-oauth2-provider": "1.0.x-dev",
         "mapado/rest-client-sdk": "^0.29.1"
     },
     "require-dev": {
-        "atoum/atoum": "^3"
+        "phpunit/phpunit": "^7.3"
     },
-    "license": "MIT",
     "autoload": {
         "psr-4": { "Mapado\\Sdk\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Mapado\\Sdk\\Tests\\Units\\": "test/" }
     },
     "authors": [
         {
