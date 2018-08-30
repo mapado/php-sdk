@@ -9,7 +9,7 @@ class ActivityRepository extends EntityRepository
         // generate the path to call
         // api.mapado.net/v2/me?
         try{
-            $data = $this->restClient->findBy(282404);
+            $data = $this->restClient->findBy($id);
             return $this->sdk->getModelHydrator()->hydrateList($data, $this->entityName); // hydrate for an entity, hydrateList for a list
         }catch(\RestClientException $e) {
             $response = $e->getResponse(); // $response should be a Psr\Http\Message\ResponseInterface

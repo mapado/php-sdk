@@ -8,258 +8,189 @@ use Mapado\RestClientSdk\Mapping\Annotations as Rest;
  */
 class User {
     /**
-     * @Rest\id
+     * @var string
+     * @Rest\Id
      * @Rest\Attribute(name="@id", type="string")
      */
-    private $id;
+    private $Id;
 
     /**
-     * @Rest\id
-     * @Rest\Attribute(name="id", type="string")
-     */
-    private $idUser;
-
-    /**
-     * @Rest\Attribute(name="uuid", type="string")
-     */
-    private $uuid;
-
-    /**
+     * @var string
      * @Rest\Attribute(name="createdAt", type="string")
      */
     private $createdAt;
 
     /**
-     * @Rest\Attribute(name="savedSearch", type="array")
-     */
-    private $savedSearch;
-
-    /**
-     * @Rest\Attribute(name="savedSearchList", type="array")
-     */
-    private $savedSearchList;
-
-    /**
-     * @Rest\Attribute(name="claimedActivity", type="array")
-     */
-    private $claimedActivity;
-
-    /**
-     * @Rest\Attribute(name="claimedActivityList", type="array")
-     */
-    private $claimedActivityList;
-
-    /**
-     * @Rest\Attribute(name="interactionList", type="array")
-     */
-    private $interactionList;
-
-    /**
+     * @var string
      * @Rest\Attribute(name="firstName", type="string")
      */
     private $firstName;
 
     /**
+     * @var string
      * @Rest\Attribute(name="lastName", type="string")
      */
     private $lastName;
 
     /**
+     * @var string
      * @Rest\Attribute(name="fullName", type="string")
      */
     private $fullName;
 
     /**
-     * @Rest\Attribute(name="facebookId", type="string")
-     */
-    private $facebookId;
-
-    /**
-     * @Rest\Attribute(name="sponsored", type="bool")
-     */
-    private $sponsored;
-
-    /**
-     * @Rest\Attribute(name="FBData", type="array")
-     */
-    private $FBData;
-
-    /**
+     * @var string
      * @Rest\Attribute(name="email", type="string")
      */
     private $email;
 
     /**
+     * @var string
      * @Rest\Attribute(name="gender", type="string")
      */
     private $gender;
 
     /**
+     * @var string
      * @Rest\Attribute(name="avatar", type="string")
      */
     private $avatar;
 
     /**
+     * @var string
      * @Rest\Attribute(name="city", type="string")
      */
     private $city;
 
     /**
+     * @var string
      * @Rest\Attribute(name="address", type="string")
      */
     private $address;
 
     /**
+     * @var string
      * @Rest\Attribute(name="birthday", type="string")
      */
     private $birthday;
 
     /**
+     * @var string
      * @Rest\Attribute(name="token", type="string")
      */
     private $token;
 
     /**
+     * @var string
      * @Rest\Attribute(name="phoneNumber", type="string")
      */
     private $phoneNumber;
 
     /**
+     * @var string
      * @Rest\Attribute(name="userInformation", type="string")
      */
     private $userInformation;
 
     /**
+     * @var array
      * @Rest\Attribute(name="externalCredentials", type="array")
      */
     private $externalCredentials;
 
     /**
+     * @var string
      * @Rest\Attribute(name="teamMemberInformation", type="string")
      */
     private $teamMemberInformation;
 
     /**
+     * @var string
      * @Rest\Attribute(name="emailCore", type="string")
      */
     private $emailCore;
 
     /**
+     * @var string
      * @Rest\Attribute(name="mpdSlug", type="string")
      */
     private $mpdSlug;
 
     /**
+     * @var int
      * @Rest\Attribute(name="impersonationId", type="int")
      */
     private $impersonationId;
 
     /**
+     * @var bool
      * @Rest\Attribute(name="accountNonExpired", type="bool")
      */
     private $accountNonExpired;
 
     /**
+     * @var bool
      * @Rest\Attribute(name="accountNonLocked", type="bool")
      */
     private $accountNonLocked;
 
     /**
+     * @var bool
      * @Rest\Attribute(name="credentialsNonExpired", type="bool")
      */
     private $credentialsNonExpired;
 
     /**
+     * @var bool
      * @Rest\Attribute(name="enabled", type="bool")
      */
     private $enabled;
 
     /**
+     * @var string
      * @Rest\Attribute(name="roles", type="array")
      */
     private $roles;
 
     /**
+     * @var string
      * @Rest\Attribute(name="username", type="string")
      */
     private $username;
 
     /**
+     * @var string
      * @Rest\Attribute(name="usernameCanonical", type="string")
      */
     private $usernameCanonical;
 
     /**
+     * @var string
      * @Rest\Attribute(name="salt", type="string")
      */
     private $salt;
 
     /**
+     * @var string
      * @Rest\Attribute(name="emailCanonical", type="string")
      */
     private $emailCanonical;
-
-    /**
-     * @Rest\Attribute(name="lastLogin", type="string")
-     */
-    private $lastLogin;
-
-    /**
-     * @Rest\Attribute(name="confirmationToken", type="string")
-     */
-    private $confirmationToken;
-
-    /**
-     * @Rest\Attribute(name="superAdmin", type="bool")
-     */
-    private $superAdmin;
-
-    /**
-     * @Rest\Attribute(name="groups", type="array")
-     */
-    private $groups;
-
-    /**
-     * @Rest\Attribute(name="groupNames", type="string")
-     */
-    private $groupNames;
 
     /**
      * Get the value of id
      */ 
     public function getId()
     {
-        return $this->id;
+        return $this->Id;
     }
 
     /**
      * Set the value of id
      *
-     * @return  self
      */ 
-    public function setId($id)
+    public function setId($Id): self
     {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of uuid
-     */ 
-    public function getUuid()
-    {
-        return $this->uuid;
-    }
-
-    /**
-     * Set the value of uuid
-     *
-     * @return  self
-     */ 
-    public function setUuid($uuid)
-    {
-        $this->uuid = $uuid;
+        $this->Id = $Id;
 
         return $this;
     }
@@ -275,114 +206,15 @@ class User {
     /**
      * Set the value of createdAt
      *
-     * @return  self
      */ 
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt($createdAt): self
     {
         $this->createdAt = $createdAt;
 
         return $this;
     }
 
-    /**
-     * Get the value of savedSearch
-     */ 
-    public function getSavedSearch()
-    {
-        return $this->savedSearch;
-    }
-
-    /**
-     * Set the value of savedSearch
-     *
-     * @return  self
-     */ 
-    public function setSavedSearch($savedSearch)
-    {
-        $this->savedSearch = $savedSearch;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of savedSearchList
-     */ 
-    public function getSavedSearchList()
-    {
-        return $this->savedSearchList;
-    }
-
-    /**
-     * Set the value of savedSearchList
-     *
-     * @return  self
-     */ 
-    public function setSavedSearchList($savedSearchList)
-    {
-        $this->savedSearchList = $savedSearchList;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of claimedActivity
-     */ 
-    public function getClaimedActivity()
-    {
-        return $this->claimedActivity;
-    }
-
-    /**
-     * Set the value of claimedActivity
-     *
-     * @return  self
-     */ 
-    public function setClaimedActivity($claimedActivity)
-    {
-        $this->claimedActivity = $claimedActivity;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of claimedActivityList
-     */ 
-    public function getClaimedActivityList()
-    {
-        return $this->claimedActivityList;
-    }
-
-    /**
-     * Set the value of claimedActivityList
-     *
-     * @return  self
-     */ 
-    public function setClaimedActivityList($claimedActivityList)
-    {
-        $this->claimedActivityList = $claimedActivityList;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of interactionList
-     */ 
-    public function getInteractionList()
-    {
-        return $this->interactionList;
-    }
-
-    /**
-     * Set the value of interactionList
-     *
-     * @return  self
-     */ 
-    public function setInteractionList($interactionList)
-    {
-        $this->interactionList = $interactionList;
-
-        return $this;
-    }
+    
 
     /**
      * Get the value of firstName
@@ -395,9 +227,8 @@ class User {
     /**
      * Set the value of firstName
      *
-     * @return  self
      */ 
-    public function setFirstName($firstName)
+    public function setFirstName($firstName): self
     {
         $this->firstName = $firstName;
 
@@ -415,9 +246,8 @@ class User {
     /**
      * Set the value of lastName
      *
-     * @return  self
      */ 
-    public function setLastName($lastName)
+    public function setLastName($lastName): self
     {
         $this->lastName = $lastName;
 
@@ -435,71 +265,10 @@ class User {
     /**
      * Set the value of fullName
      *
-     * @return  self
      */ 
-    public function setFullName($fullName)
+    public function setFullName($fullName): self
     {
         $this->fullName = $fullName;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of facebookId
-     */ 
-    public function getFacebookId()
-    {
-        return $this->facebookId;
-    }
-
-    /**
-     * Set the value of facebookId
-     *
-     * @return  self
-     */ 
-    public function setFacebookId($facebookId)
-    {
-        $this->facebookId = $facebookId;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of sponsored
-     */ 
-    public function getSponsored()
-    {
-        return $this->sponsored;
-    }
-
-    /**
-     * Set the value of sponsored
-     *
-     * @return  self
-     */ 
-    public function setSponsored($sponsored)
-    {
-        $this->sponsored = $sponsored;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of FBData
-     */ 
-    public function getFBData()
-    {
-        return $this->FBData;
-    }
-
-    /**
-     * Set the value of FBData
-     *
-     * @return  self
-     */ 
-    public function setFBData($FBData)
-    {
-        $this->FBData = $FBData;
 
         return $this;
     }
@@ -515,9 +284,8 @@ class User {
     /**
      * Set the value of email
      *
-     * @return  self
      */ 
-    public function setEmail($email)
+    public function setEmail($email): self
     {
         $this->email = $email;
 
@@ -536,9 +304,8 @@ class User {
     /**
      * Set the value of gender
      *
-     * @return  self
      */ 
-    public function setGender($gender)
+    public function setGender($gender): self
     {
         $this->gender = $gender;
 
@@ -556,9 +323,8 @@ class User {
     /**
      * Set the value of avatar
      *
-     * @return  self
      */ 
-    public function setAvatar($avatar)
+    public function setAvatar($avatar): self
     {
         $this->avatar = $avatar;
 
@@ -578,9 +344,8 @@ class User {
     /**
      * Set the value of city
      *
-     * @return  self
      */ 
-    public function setCity($city)
+    public function setCity($city): self
     {
         $this->city = $city;
 
@@ -598,9 +363,8 @@ class User {
     /**
      * Set the value of address
      *
-     * @return  self
      */ 
-    public function setAddress($address)
+    public function setAddress($address): self
     {
         $this->address = $address;
 
@@ -618,9 +382,8 @@ class User {
     /**
      * Set the value of birthday
      *
-     * @return  self
      */ 
-    public function setBirthday($birthday)
+    public function setBirthday($birthday): self
     {
         $this->birthday = $birthday;
 
@@ -638,9 +401,8 @@ class User {
     /**
      * Set the value of token
      *
-     * @return  self
      */ 
-    public function setToken($token)
+    public function setToken($token): self
     {
         $this->token = $token;
 
@@ -658,9 +420,8 @@ class User {
     /**
      * Set the value of phoneNumber
      *
-     * @return  self
      */ 
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
 
@@ -678,9 +439,8 @@ class User {
     /**
      * Set the value of userInformation
      *
-     * @return  self
      */ 
-    public function setUserInformation($userInformation)
+    public function setUserInformation($userInformation): self
     {
         $this->userInformation = $userInformation;
 
@@ -698,9 +458,8 @@ class User {
     /**
      * Set the value of externalCredentials
      *
-     * @return  self
      */ 
-    public function setExternalCredentials($externalCredentials)
+    public function setExternalCredentials($externalCredentials): self
     {
         $this->externalCredentials = $externalCredentials;
 
@@ -718,9 +477,8 @@ class User {
     /**
      * Set the value of teamMemberInformation
      *
-     * @return  self
      */ 
-    public function setTeamMemberInformation($teamMemberInformation)
+    public function setTeamMemberInformation($teamMemberInformation): self
     {
         $this->teamMemberInformation = $teamMemberInformation;
 
@@ -738,9 +496,8 @@ class User {
     /**
      * Set the value of emailCore
      *
-     * @return  self
      */ 
-    public function setEmailCore($emailCore)
+    public function setEmailCore($emailCore): self
     {
         $this->emailCore = $emailCore;
 
@@ -758,9 +515,8 @@ class User {
     /**
      * Set the value of mpdSlug
      *
-     * @return  self
      */ 
-    public function setMpdSlug($mpdSlug)
+    public function setMpdSlug($mpdSlug): self
     {
         $this->mpdSlug = $mpdSlug;
 
@@ -778,9 +534,8 @@ class User {
     /**
      * Set the value of impersonationId
      *
-     * @return  self
      */ 
-    public function setImpersonationId($impersonationId)
+    public function setImpersonationId($impersonationId): self
     {
         $this->impersonationId = $impersonationId;
 
@@ -798,9 +553,8 @@ class User {
     /**
      * Set the value of accountNonExpired
      *
-     * @return  self
      */ 
-    public function setAccountNonExpired($accountNonExpired)
+    public function setAccountNonExpired($accountNonExpired): self
     {
         $this->accountNonExpired = $accountNonExpired;
 
@@ -818,9 +572,8 @@ class User {
     /**
      * Set the value of accountNonLocked
      *
-     * @return  self
      */ 
-    public function setAccountNonLocked($accountNonLocked)
+    public function setAccountNonLocked($accountNonLocked): self
     {
         $this->accountNonLocked = $accountNonLocked;
 
@@ -838,9 +591,8 @@ class User {
     /**
      * Set the value of credentialsNonExpired
      *
-     * @return  self
      */ 
-    public function setCredentialsNonExpired($credentialsNonExpired)
+    public function setCredentialsNonExpired($credentialsNonExpired): self
     {
         $this->credentialsNonExpired = $credentialsNonExpired;
 
@@ -858,9 +610,8 @@ class User {
     /**
      * Set the value of enabled
      *
-     * @return  self
      */ 
-    public function setEnabled($enabled)
+    public function setEnabled($enabled): self
     {
         $this->enabled = $enabled;
 
@@ -878,9 +629,8 @@ class User {
     /**
      * Set the value of roles
      *
-     * @return  self
      */ 
-    public function setRoles($roles)
+    public function setRoles($roles): self
     {
         $this->roles = $roles;
 
@@ -898,9 +648,8 @@ class User {
     /**
      * Set the value of username
      *
-     * @return  self
      */ 
-    public function setUsername($username)
+    public function setUsername($username): self
     {
         $this->username = $username;
 
@@ -918,9 +667,8 @@ class User {
     /**
      * Set the value of usernameCanonical
      *
-     * @return  self
      */ 
-    public function setUsernameCanonical($usernameCanonical)
+    public function setUsernameCanonical($usernameCanonical): self
     {
         $this->usernameCanonical = $usernameCanonical;
 
@@ -938,9 +686,8 @@ class User {
     /**
      * Set the value of salt
      *
-     * @return  self
      */ 
-    public function setSalt($salt)
+    public function setSalt($salt): self
     {
         $this->salt = $salt;
 
@@ -958,71 +705,10 @@ class User {
     /**
      * Set the value of emailCanonical
      *
-     * @return  self
      */ 
-    public function setEmailCanonical($emailCanonical)
+    public function setEmailCanonical($emailCanonical): self
     {
         $this->emailCanonical = $emailCanonical;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of lastLogin
-     */ 
-    public function getLastLogin()
-    {
-        return $this->lastLogin;
-    }
-
-    /**
-     * Set the value of lastLogin
-     *
-     * @return  self
-     */ 
-    public function setLastLogin($lastLogin)
-    {
-        $this->lastLogin = $lastLogin;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of confirmationToken
-     */ 
-    public function getConfirmationToken()
-    {
-        return $this->confirmationToken;
-    }
-
-    /**
-     * Set the value of confirmationToken
-     *
-     * @return  self
-     */ 
-    public function setConfirmationToken($confirmationToken)
-    {
-        $this->confirmationToken = $confirmationToken;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of superAdmin
-     */ 
-    public function getSuperAdmin()
-    {
-        return $this->superAdmin;
-    }
-
-    /**
-     * Set the value of superAdmin
-     *
-     * @return  self
-     */ 
-    public function setSuperAdmin($superAdmin)
-    {
-        $this->superAdmin = $superAdmin;
 
         return $this;
     }
@@ -1038,9 +724,8 @@ class User {
     /**
      * Set the value of passwordRequestedAt
      *
-     * @return  self
      */ 
-    public function setPasswordRequestedAt($passwordRequestedAt)
+    public function setPasswordRequestedAt($passwordRequestedAt): self
     {
         $this->passwordRequestedAt = $passwordRequestedAt;
 
@@ -1058,71 +743,10 @@ class User {
     /**
      * Set the value of passwordRequestNonExpired
      *
-     * @return  self
      */ 
-    public function setPasswordRequestNonExpired($passwordRequestNonExpired)
+    public function setPasswordRequestNonExpired($passwordRequestNonExpired): self
     {
         $this->passwordRequestNonExpired = $passwordRequestNonExpired;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of groups
-     */ 
-    public function getGroups()
-    {
-        return $this->groups;
-    }
-
-    /**
-     * Set the value of groups
-     *
-     * @return  self
-     */ 
-    public function setGroups($groups)
-    {
-        $this->groups = $groups;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of groupNames
-     */ 
-    public function getGroupNames()
-    {
-        return $this->groupNames;
-    }
-
-    /**
-     * Set the value of groupNames
-     *
-     * @return  self
-     */ 
-    public function setGroupNames($groupNames)
-    {
-        $this->groupNames = $groupNames;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of idUser
-     */ 
-    public function getIdUser()
-    {
-        return $this->idUser;
-    }
-
-    /**
-     * Set the value of idUser
-     *
-     * @return  self
-     */ 
-    public function setIdUser($idUser)
-    {
-        $this->idUser = $idUser;
 
         return $this;
     }
