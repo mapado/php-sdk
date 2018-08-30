@@ -8,159 +8,184 @@ use Mapado\RestClientSdk\Mapping\Annotations as Rest;
  */
 class Activity {
     /**
-     * @Rest\id
+     * @var string
+     * @Rest\Id
      * @Rest\Attribute(name="@id", type="string")
      */
     private $id;
 
     /**
+     * @var string
      * @Rest\Attribute(name="title", type="string")
      */
     private $title;
 
     /**
+     * @var string
      * @Rest\Attribute(name="activityType", type="string")
      */
     private $activityType;
 
     /**
+     * @var string
      * @Rest\Attribute(name="ldType", type="string")
      */
     private $ldType;
 
     /**
+     * @var string
      * @Rest\Attribute(name="description", type="string")
      */
     private $description;
 
     /**
+     * @var string
      * @Rest\Attribute(name="shortDescription", type="string")
      */
     private $shortDescription;
-
-    // Liste d'image (tableau)
+    
     /**
      * @Rest\Attribute(name="imageList", type="array")
      */
     private $imageList;
 
     /**
+     * @var array
      * @Rest\Attribute(name="imageSizes", type="array")
      */
     private $imageSizes;
 
-    // Liste audio (tableau)
     /**
+     * @var array
      * @Rest\Attribute(name="audioList", type="array")
      */
     private $audioList;
     
     /**
+     * @var Activity
      * @Rest\ManyToOne(name="place", targetEntity="Activity")
      */
     private $place;
 
     /**
+     * @var string
      * @Rest\Attribute(name="priceList", type="string")
      */
     private $priceList;
     
     /**
+     * @var int
      * @Rest\Attribute(name="simplePrice", type="int")
      */
     private $simplePrice;
 
     /**
+     * @var array
      * @Rest\Attribute(name="urlList", type="array")
      */
     private $urlList;
 
     /**
+     * @var array
      * @Rest\Attribute(name="emailList", type="array")
      */
     private $emailList;
 
     /**
+     * @var array
      * @Rest\Attribute(name="phoneList", type="array")
      */
     private $phoneList;
 
     /**
+     * @var string
      * @Rest\Attribute(name="formattedSchedule", type="string")
      */
     private $formattedSchedule;
     
     /**
-     * @Rest\Attribute(name="firstDate", type="dateTime")
+     * @var datetime
+     * @Rest\Attribute(name="firstDate", type="datetime")
      */
     private $firstDate;
 
     /**
-     * @Rest\Attribute(name="lastDate", type="dateTime")
+     * @var datetime
+     * @Rest\Attribute(name="lastDate", type="datetime")
      */
     private $lastDate;
 
     /**
-     * @Rest\Attribute(name="nextDate", type="dateTime")
+     * @var datetime
+     * @Rest\Attribute(name="nextDate", type="datetime")
      */
     private $nextDate;
 
     /**
+     * @var bool
      * @Rest\Attribute(name="canceled", type="bool")
      */
     private $canceled;
 
     /**
+     * @var bool
      * @Rest\Attribute(name="soldOut", type="bool")
      */
     private $soldOut;
 
     /**
+     * @var array
      * @Rest\Attribute(name="semanticTags", type="array")
      */
     private $semanticTags;
 
     /**
+     * @var array
      * @Rest\Attribute(name="externalMediaList", type="array")
      */
     private $externalMediaList;
 
     /**
+     * @var int
      * @Rest\Attribute(name="ticketingId", type="int")
      */
     private $ticketingId;
 
     /**
+     * @var string
      * @Rest\Attribute(name="apiSlug", type="string")
      */
     private $apiSlug;
 
     /**
+     * @var string
      * @Rest\Attribute(name="image", type="string")
      */
     private $image;
 
     /**
+     * @var string
      * @Rest\Attribute(name="frontPlaceName", type="string")
      */
     private $frontPlaceName;
 
     /**
+     * @var string
      * @Rest\Attribute(name="shortDate", type="string")
      */
     private $shortDate;
 
     /**
+     * @var string
      * @Rest\Attribute(name="address", type="string")
      */
     private $address;
 
     /**
+     * @var string
      * @Rest\Attribute(name="slug", type="string")
      */
     private $slug;
-
-    // getters & setters
 
     /**
      * Get the value of id
@@ -173,9 +198,8 @@ class Activity {
     /**
      * Set the value of id
      *
-     * @return  self
      */ 
-    public function setId($id)
+    public function setId($id): self
     {
         $this->id = $id;
 
@@ -193,9 +217,8 @@ class Activity {
     /**
      * Set the value of title
      *
-     * @return  self
      */ 
-    public function setTitle($title)
+    public function setTitle($title): self
     {
         $this->title = $title;
 
@@ -213,9 +236,8 @@ class Activity {
     /**
      * Set the value of activityType
      *
-     * @return  self
      */ 
-    public function setActivityType($activityType)
+    public function setActivityType($activityType): self
     {
         $this->activityType = $activityType;
 
@@ -233,9 +255,8 @@ class Activity {
     /**
      * Set the value of ldType
      *
-     * @return  self
      */ 
-    public function setLdType($ldType)
+    public function setLdType($ldType): self
     {
         $this->ldType = $ldType;
 
@@ -253,9 +274,8 @@ class Activity {
     /**
      * Set the value of description
      *
-     * @return  self
      */ 
-    public function setDescription($description)
+    public function setDescription($description): self
     {
         $this->description = $description;
 
@@ -273,9 +293,8 @@ class Activity {
     /**
      * Set the value of shortDescription
      *
-     * @return  self
      */ 
-    public function setShortDescription($shortDescription)
+    public function setShortDescription($shortDescription): self
     {
         $this->shortDescription = $shortDescription;
 
@@ -293,9 +312,8 @@ class Activity {
     /**
      * Set the value of imageList
      *
-     * @return  self
      */ 
-    public function setImageList($imageList)
+    public function setImageList($imageList): self
     {
         $this->imageList = $imageList;
 
@@ -313,9 +331,8 @@ class Activity {
     /**
      * Set the value of audioList
      *
-     * @return  self
      */ 
-    public function setAudioList($audioList)
+    public function setAudioList($audioList): self
     {
         $this->audioList = $audioList;
 
@@ -333,9 +350,8 @@ class Activity {
     /**
      * Set the value of place
      *
-     * @return  self
      */ 
-    public function setPlace($place)
+    public function setPlace($place): self
     {
         $this->place = $place;
 
@@ -353,9 +369,8 @@ class Activity {
     /**
      * Set the value of priceList
      *
-     * @return  self
      */ 
-    public function setPriceList($priceList)
+    public function setPriceList($priceList): self
     {
         $this->priceList = $priceList;
 
@@ -373,9 +388,8 @@ class Activity {
     /**
      * Set the value of simplePrice
      *
-     * @return  self
      */ 
-    public function setSimplePrice($simplePrice)
+    public function setSimplePrice($simplePrice): self
     {
         $this->simplePrice = $simplePrice;
 
@@ -393,9 +407,8 @@ class Activity {
     /**
      * Set the value of urlList
      *
-     * @return  self
      */ 
-    public function setUrlList($urlList)
+    public function setUrlList($urlList): self
     {
         $this->urlList = $urlList;
 
@@ -413,9 +426,8 @@ class Activity {
     /**
      * Set the value of emailList
      *
-     * @return  self
      */ 
-    public function setEmailList($emailList)
+    public function setEmailList($emailList): self
     {
         $this->emailList = $emailList;
 
@@ -433,9 +445,8 @@ class Activity {
     /**
      * Set the value of phoneList
      *
-     * @return  self
      */ 
-    public function setPhoneList($phoneList)
+    public function setPhoneList($phoneList): self
     {
         $this->phoneList = $phoneList;
 
@@ -453,9 +464,8 @@ class Activity {
     /**
      * Set the value of formattedSchedule
      *
-     * @return  self
      */ 
-    public function setFormattedSchedule($formattedSchedule)
+    public function setFormattedSchedule($formattedSchedule): self
     {
         $this->formattedSchedule = $formattedSchedule;
 
@@ -473,9 +483,8 @@ class Activity {
     /**
      * Set the value of firstDate
      *
-     * @return  self
      */ 
-    public function setFirstDate($firstDate)
+    public function setFirstDate($firstDate): self
     {
         $this->firstDate = $firstDate;
 
@@ -493,9 +502,8 @@ class Activity {
     /**
      * Set the value of lastDate
      *
-     * @return  self
      */ 
-    public function setLastDate($lastDate)
+    public function setLastDate($lastDate): self
     {
         $this->lastDate = $lastDate;
 
@@ -513,9 +521,8 @@ class Activity {
     /**
      * Set the value of nextDate
      *
-     * @return  self
      */ 
-    public function setNextDate($nextDate)
+    public function setNextDate($nextDate): self
     {
         $this->nextDate = $nextDate;
 
@@ -533,9 +540,8 @@ class Activity {
     /**
      * Set the value of canceled
      *
-     * @return  self
      */ 
-    public function setCanceled($canceled)
+    public function setCanceled($canceled): self
     {
         $this->canceled = $canceled;
 
@@ -553,9 +559,8 @@ class Activity {
     /**
      * Set the value of soldOut
      *
-     * @return  self
      */ 
-    public function setSoldOut($soldOut)
+    public function setSoldOut($soldOut): self
     {
         $this->soldOut = $soldOut;
 
@@ -573,9 +578,8 @@ class Activity {
     /**
      * Set the value of semanticTags
      *
-     * @return  self
      */ 
-    public function setSemanticTags($semanticTags)
+    public function setSemanticTags($semanticTags): self
     {
         $this->semanticTags = $semanticTags;
 
@@ -593,9 +597,8 @@ class Activity {
     /**
      * Set the value of externalMediaList
      *
-     * @return  self
      */ 
-    public function setExternalMediaList($externalMediaList)
+    public function setExternalMediaList($externalMediaList): self
     {
         $this->externalMediaList = $externalMediaList;
 
@@ -613,9 +616,8 @@ class Activity {
     /**
      * Set the value of ticketingId
      *
-     * @return  self
      */ 
-    public function setTicketingId($ticketingId)
+    public function setTicketingId($ticketingId): self
     {
         $this->ticketingId = $ticketingId;
 
@@ -633,9 +635,8 @@ class Activity {
     /**
      * Set the value of apiSlug
      *
-     * @return  self
      */ 
-    public function setApiSlug($apiSlug)
+    public function setApiSlug($apiSlug): self
     {
         $this->apiSlug = $apiSlug;
 
@@ -653,9 +654,8 @@ class Activity {
     /**
      * Set the value of image
      *
-     * @return  self
      */ 
-    public function setImage($image)
+    public function setImage($image): self
     {
         $this->image = $image;
 
@@ -673,9 +673,8 @@ class Activity {
     /**
      * Set the value of frontPlaceName
      *
-     * @return  self
      */ 
-    public function setFrontPlaceName($frontPlaceName)
+    public function setFrontPlaceName($frontPlaceName): self
     {
         $this->frontPlaceName = $frontPlaceName;
 
@@ -693,9 +692,8 @@ class Activity {
     /**
      * Set the value of shortDate
      *
-     * @return  self
      */ 
-    public function setShortDate($shortDate)
+    public function setShortDate($shortDate): self
     {
         $this->shortDate = $shortDate;
 
@@ -713,9 +711,8 @@ class Activity {
     /**
      * Set the value of address
      *
-     * @return  self
      */ 
-    public function setAddress($address)
+    public function setAddress($address): self
     {
         $this->address = $address;
 
@@ -733,9 +730,8 @@ class Activity {
     /**
      * Set the value of imageSizes
      *
-     * @return  self
      */ 
-    public function setImageSizes($imageSizes)
+    public function setImageSizes($imageSizes): self
     {
         $this->imageSizes = $imageSizes;
 
@@ -753,9 +749,8 @@ class Activity {
     /**
      * Set the value of slug
      *
-     * @return  self
      */ 
-    public function setSlug($slug)
+    public function setSlug($slug): self
     {
         $this->slug = $slug;
 
