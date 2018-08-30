@@ -45,6 +45,7 @@ class Activity {
     private $shortDescription;
     
     /**
+     * @var array
      * @Rest\Attribute(name="imageList", type="array")
      */
     private $imageList;
