@@ -344,6 +344,8 @@ class Activity
 
     /**
      * Get the value of place
+     *
+     * @return ?Activity
      */
     public function getPlace()
     {
