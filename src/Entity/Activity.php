@@ -189,6 +189,12 @@ class Activity {
     private $slug;
 
     /**
+     * @var string
+     * @Rest\Attribute(name="trashStatus", type="string")
+     */
+    private $trashStatus;
+
+    /**
      * Get the value of id
      */ 
     public function getId()
@@ -754,6 +760,25 @@ class Activity {
     public function setSlug($slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of trashStatus
+     */
+    public function getTrashStatus()
+    {
+        return $this->trashStatus;
+    }
+
+    /**
+     * Set the value of trashStatus
+     *
+     */
+    public function setTrashStatus($trashStatus): self
+    {
+        $this->trashStatus = $trashStatus;
 
         return $this;
     }
