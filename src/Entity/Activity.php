@@ -191,6 +191,12 @@ class Activity
     private $slug;
 
     /**
+     * @var string
+     * @Rest\Attribute(name="visible", type="string")
+     */
+    private $visible;
+
+    /**
      * Get the value of id
      */
     public function getId()
@@ -758,6 +764,25 @@ class Activity
     public function setSlug($slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of visible
+     */
+    public function getVisible()
+    {
+        return $this->visible;
+    }
+
+    /**
+     * Set the value of visible
+     *
+     */
+    public function setVisible($visible): self
+    {
+        $this->visible = $visible;
 
         return $this;
     }
