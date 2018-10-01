@@ -191,6 +191,12 @@ class Activity
     private $slug;
 
     /**
+     * @var bool
+     * @Rest\Attribute(name="visible", type="bool")
+     */
+    private $visible;
+
+    /**
      * Get the value of id
      */
     public function getId()
@@ -758,6 +764,18 @@ class Activity
     public function setSlug($slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getVisible(): bool
+    {
+        return $this->visible;
+    }
+
+    public function setVisible(bool $visible): self
+    {
+        $this->visible = $visible;
 
         return $this;
     }
