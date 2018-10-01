@@ -191,8 +191,8 @@ class Activity
     private $slug;
 
     /**
-     * @var string
-     * @Rest\Attribute(name="visible", type="string")
+     * @var bool
+     * @Rest\Attribute(name="visible", type="bool")
      */
     private $visible;
 
@@ -768,19 +768,12 @@ class Activity
         return $this;
     }
 
-    /**
-     * Get the value of visible
-     */
-    public function getVisible()
+    public function getVisible(): bool
     {
         return $this->visible;
     }
 
-    /**
-     * Set the value of visible
-     *
-     */
-    public function setVisible($visible): self
+    public function setVisible(bool $visible): self
     {
         $this->visible = $visible;
 
