@@ -2,7 +2,7 @@
     "name": "mapado/php-sdk",
     "description": "PHP SDK for Mapado API v2",
     "require": {
-        "mapado/rest-client-sdk": "^0.29.1"
+        "mapado/rest-client-sdk": "^0.33.3"
     },
     "require-dev": {
         "atoum/atoum": "^3"
